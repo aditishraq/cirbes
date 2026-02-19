@@ -1,76 +1,78 @@
-// NAV SCROLL
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// HAMBURGER
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-if (hamburger) {
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-}
-
-// ACTIVE NAV LINK
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-    link.classList.add('active');
-  }
-});
-
-// REVEAL ANIMATIONS
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-up, .fade-in, .reveal').forEach(el => revealObserver.observe(el));
-
-// ACCORDION
-document.querySelectorAll('.accordion-item').forEach(item => {
-  const header = item.querySelector('.accordion-header');
-  if (header) {
-    header.addEventListener('click', () => {
-      const isOpen = item.classList.contains('active');
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-      if (!isOpen) item.classList.add('active');
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
-  }
 });
 
-// TABS (about page)
-document.querySelectorAll('.tab-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const target = item.dataset.tab;
-    document.querySelectorAll('.tab-item').forEach(i => i.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    item.classList.add('active');
-    const el = document.getElementById(target);
-    if (el) el.classList.add('active');
-  });
+// Tab functionality for About page
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        // Add active class to clicked tab
+        this.classList.add('active');
+    });
 });
 
-// CONTACT FORM
-const form = document.querySelector('.contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const msg = document.querySelector('.success-msg');
-    if (msg) {
-      msg.style.display = 'block';
-      form.reset();
-      setTimeout(() => { msg.style.display = 'none'; }, 4000);
-    }
-  });
+// Form submission handler
+const contactForm = document.querySelector('.contact-form form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
 }
 
-// Close mobile nav on link click
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => navLinks?.classList.remove('open'));
+// Add animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all cards and sections
+document.querySelectorAll('.project-card, .service-card, .team-member, .service-detail, .project-detail').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
 });
+
+// Mobile menu toggle (for future enhancement)
+const createMobileMenu = () => {
+    const nav = document.querySelector('nav');
+    const menuButton = document.createElement('button');
+    menuButton.classList.add('mobile-menu-toggle');
+    menuButton.innerHTML = '☰';
+    menuButton.style.display = 'none';
+    
+    if (window.innerWidth <= 768) {
+        menuButton.style.display = 'block';
+        nav.parentElement.insertBefore(menuButton, nav);
+        
+        menuButton.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+};
+
+// Initialize on load
+window.addEventListener('load', createMobileMenu);
+window.addEventListener('resize', createMobileMenu);

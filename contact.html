@@ -1,88 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact CirBES — Get in Touch</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CirBES</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<nav class="nav">
-  <a class="nav__logo" href="index.html">Cir<span>BES</span></a>
-  <ul class="nav__links">
-    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="circular-vision.html">Circular Vision</a></li>
-    <li><a href="contact.html" class="nav__cta">Contact Us</a></li>
-  </ul>
-  <div class="nav__hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="page-hero">
-  <div class="page-hero-content">
-    <div class="section-tag" style="color: var(--sky);">Let's Talk</div>
-    <h1>Get in touch with us</h1>
-    <p>Whether you're curious about circular business or ready to start your transformation — we'd love to hear from you.</p>
-  </div>
-</div>
-<section>
-  <div class="contact-grid">
-    <div>
-      <div class="section-tag reveal">Contact Info</div>
-      <h3 class="reveal reveal-delay-1">CirBES Circular Business and Engineering Systems AB</h3>
-      <div class="contact-detail reveal reveal-delay-2"><div class="contact-icon">📍</div><div class="contact-detail-text"><label>Address</label><p>Solbackavägen 29, 19149 Sollentuna, Sweden</p></div></div>
-      <div class="contact-detail reveal reveal-delay-2"><div class="contact-icon">📞</div><div class="contact-detail-text"><label>Phone</label><a href="tel:+46708436075">+46 708 43 60 75</a></div></div>
-      <div class="contact-detail reveal reveal-delay-2"><div class="contact-icon">✉️</div><div class="contact-detail-text"><label>Email</label><a href="/cdn-cgi/l/email-protection#aac3c4ccc5eac9c3d8c8cfd984d9cf"><span class="__cf_email__" data-cfemail="177e79717857747e65757264396472">[email&#160;protected]</span></a></div></div>
-      <div class="contact-detail reveal reveal-delay-3"><div class="contact-icon">🏢</div><div class="contact-detail-text"><label>Org. Number</label><p>556993-9647</p></div></div>
-      <div style="margin-top:2rem;" class="reveal reveal-delay-3">
-        <h4 style="font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;">Follow Us</h4>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-          <a href="https://www.linkedin.com/company/cirbes-circular-business-and-engineering-systems-ab" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--white);border:1px solid var(--light-gray);border-radius:10px;padding:0.6rem 1.25rem;font-size:0.85rem;font-weight:500;color:var(--navy);"><span style="font-weight:700;">in</span> LinkedIn</a>
-          <a href="https://twitter.com/CirBES_CE" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--white);border:1px solid var(--light-gray);border-radius:10px;padding:0.6rem 1.25rem;font-size:0.85rem;font-weight:500;color:var(--navy);"><span>𝕏</span> Twitter</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/cropped-logo250.png" alt="CirBES Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </div>
-    <div class="contact-form reveal reveal-delay-1">
-      <h3 style="margin-bottom:0.5rem;">Send us a message</h3>
-      <p style="font-size:0.87rem;color:var(--gray);margin-bottom:2rem;">Fill out the form and we'll get back to you within 1-2 business days.</p>
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group"><label>First Name *</label><input type="text" placeholder="Saman" required /></div>
-          <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Amir" required /></div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get in touch with us</h1>
+            <div class="section-divider"></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="you@company.com" required /></div>
-        <div class="form-group"><label>Company / Organisation</label><input type="text" placeholder="Your company name" /></div>
-        <div class="form-group">
-          <label>What can we help you with?</label>
-          <select><option value="">Select a topic...</option><option>Awareness & Knowledge Building</option><option>Assessment & Potential Analysis</option><option>Implementation Support</option><option>Partnership / Collaboration</option><option>General Inquiry</option></select>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-section">
+                    <h2>CirBES Circular Business and Engineering Systems AB</h2>
+                    <p><strong>ORG.NR:</strong> 556993-9647</p>
+                    <p>Solbackavägen 29, 19149 Sollentuna</p>
+                    <p><strong>Phone:</strong> <a href="tel:+46708436075">+46 708 43 60 75</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@cirbes.se">info@cirbes.se</a></p>
+
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/images/Imp5.jpg" alt="CirBES Office">
+                </div>
+            </div>
         </div>
-        <div class="form-group"><label>Your Message *</label><textarea placeholder="Tell us about your needs..." required></textarea></div>
-        <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
-      </form>
-    </div>
-  </div>
-</section>
-<section style="background:var(--white);">
-  <div style="text-align:center;margin-bottom:3rem;"><div class="section-tag reveal" style="justify-content:center;">Direct Contact</div><h2 class="section-title reveal reveal-delay-1">Reach the team directly</h2></div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;">
-    <div style="background:var(--cream);border:1px solid var(--light-gray);border-radius:16px;padding:1.75rem;text-align:center;" class="reveal">
-      <div style="width:60px;height:60px;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:rgba(255,255,255,0.7);font-size:1.2rem;margin:0 auto 1rem;">SA</div>
-      <h4 style="font-size:1rem;">Saman Amir</h4><p style="font-size:0.78rem;color:var(--mint);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin:0.25rem 0 0.75rem;">Business Development</p>
-      <a href="/cdn-cgi/l/email-protection#ec9f8d818d82c28d81859eac8f859e8e899fc29f89" style="display:block;font-size:0.85rem;color:var(--blue);"><span class="__cf_email__" data-cfemail="8af9ebe7ebe4a4ebe7e3f8cae9e3f8e8eff9a4f9ef">[email&#160;protected]</span></a>
-      <a href="tel:+46708436075" style="display:block;font-size:0.85rem;color:var(--gray);margin-top:0.25rem;">+46 708 43 60 75</a>
-    </div>
-    <div style="background:var(--cream);border:1px solid var(--light-gray);border-radius:16px;padding:1.75rem;text-align:center;" class="reveal reveal-delay-1">
-      <div style="width:60px;height:60px;background:linear-gradient(135deg,#1e3a6e,#3a8a76);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:rgba(255,255,255,0.7);font-size:1.2rem;margin:0 auto 1rem;">FA</div>
-      <h4 style="font-size:1rem;">Dr. Farazee Asif</h4><p style="font-size:0.78rem;color:var(--mint);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin:0.25rem 0 0.75rem;">Training & Research</p>
-      <a href="/cdn-cgi/l/email-protection#a9cfc8dbc8d3cccc87c8dac0cfe9cac0dbcbccda87dacc" style="display:block;font-size:0.85rem;color:var(--blue);"><span class="__cf_email__" data-cfemail="9dfbfceffce7f8f8b3fceef4fbddfef4effff8eeb3eef8">[email&#160;protected]</span></a>
-      <a href="tel:+46762198387" style="display:block;font-size:0.85rem;color:var(--gray);margin-top:0.25rem;">+46 762 19 83 87</a>
-    </div>
-    <div style="background:var(--cream);border:1px solid var(--light-gray);border-radius:16px;padding:1.75rem;text-align:center;" class="reveal reveal-delay-2">
-      <div style="width:60px;height:60px;background:linear-gradient(135deg,#2d5fa8,#6ecbb8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:rgba(255,255,255,0.7);font-size:1.2rem;margin:0 auto 1rem;">MR</div>
-      <h4 style="font-size:1rem;">Malvina Roci</h4><p style="font-size:0.78rem;color:var(--mint);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin:0.25rem 0 0.75rem;">Project Management</p>
-      <a href="/cdn-cgi/l/email-protection#92fff3fee4fbfcf3bce0fdf1fbd2f1fbe0f0f7e1bce1f7" style="display:block;font-size:0.85rem;color:var(--blue);"><span class="__cf_email__" data-cfemail="583539342e313639762a373b31183b312a3a3d2b762b3d">[email&#160;protected]</span></a>
-    </div>
-  </div>
-</section>
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand"><div class="footer-logo">Cir<span>BES</span></div><p class="footer-desc">Circular Business and Engineering Systems AB.</p><div class="footer-social"><a href="https://www.linkedin.com/company/cirbes-circular-business-and-engineering-systems-ab" class="social-icon" target="_blank">in</a><a href="https://twitter.com/CirBES_CE" class="social-icon" target="_blank">𝕏</a></div></div>
-    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="circular-vision.html">Circular Vision</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Knowledge Building</a></li><li><a href="services.html">Potential Analysis</a></li><li><a href="services.html">Implementation</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+46708436075">+46 708 43 60 75</a></li><li><a href="/cdn-cgi/l/email-protection#afc6c1c9c0efccc6ddcdcadc81dcca"><span class="__cf_email__" data-cfemail="630a0d05
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-item">
+                    <div class="icon">📞</div>
+                    <h4>Contact us</h4>
+                    <p>+46 708 43 60 75</p>
+                </div>
+                <div class="footer-item">
+                    <div class="icon">✉️</div>
+                    <h4>Write us an email</h4>
+                    <p><a href="mailto:info@cirbes.se">info@cirbes.se</a></p>
+                </div>
+                <div class="footer-item">
+                    <div class="icon">💼</div>
+                    <h4>LinkedIn</h4>
+                    <p><a href="https://www.linkedin.com/company/cirbes-circular-business-and-engineering-systems-ab" target="_blank">linkedin.com/cirbes</a></p>
+                </div>
+                <div class="footer-item">
+                    <div class="icon">🐦</div>
+                    <h4>Twitter</h4>
+                    <p><a href="https://twitter.com/CirBES_CE" target="_blank">twitter.com/cirbes</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
