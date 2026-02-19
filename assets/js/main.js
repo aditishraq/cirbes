@@ -20,16 +20,29 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   }
 });
 
-// FADE-UP OBSERVER
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
+// REVEAL ANIMATIONS
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.fade-up, .fade-in, .reveal').forEach(el => revealObserver.observe(el));
+
+// ACCORDION
+document.querySelectorAll('.accordion-item').forEach(item => {
+  const header = item.querySelector('.accordion-header');
+  if (header) {
+    header.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+      if (!isOpen) item.classList.add('active');
+    });
+  }
+});
 
 // TABS (about page)
 document.querySelectorAll('.tab-item').forEach(item => {
