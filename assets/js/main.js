@@ -1,3 +1,49 @@
+// Hamburger Menu functionality
+function initMobileMenu() {
+    const nav = document.querySelector('nav');
+    let menuButton = document.querySelector('.mobile-menu-toggle');
+    
+    // Create menu button if it doesn't exist
+    if (!menuButton) {
+        menuButton = document.createElement('button');
+        menuButton.classList.add('mobile-menu-toggle');
+        menuButton.innerHTML = '☰';
+        menuButton.setAttribute('aria-label', 'Toggle menu');
+        
+        const logo = document.querySelector('.logo');
+        logo.parentElement.insertBefore(menuButton, nav);
+    }
+    
+    // Toggle menu on button click
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+        menuButton.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('active');
+                menuButton.innerHTML = '☰';
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !menuButton.contains(e.target)) {
+            nav.classList.remove('active');
+            menuButton.innerHTML = '☰';
+        }
+    });
+}
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -55,24 +101,7 @@ document.querySelectorAll('.project-card, .service-card, .team-member, .service-
     observer.observe(el);
 });
 
-// Mobile menu toggle (for future enhancement)
-const createMobileMenu = () => {
-    const nav = document.querySelector('nav');
-    const menuButton = document.createElement('button');
-    menuButton.classList.add('mobile-menu-toggle');
-    menuButton.innerHTML = '☰';
-    menuButton.style.display = 'none';
-    
-    if (window.innerWidth <= 768) {
-        menuButton.style.display = 'block';
-        nav.parentElement.insertBefore(menuButton, nav);
-        
-        menuButton.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
-};
-
 // Initialize on load
-window.addEventListener('load', createMobileMenu);
-window.addEventListener('resize', createMobileMenu);
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+});
