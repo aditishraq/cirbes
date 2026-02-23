@@ -4,52 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
     function initMobileMenu() {
         const nav = document.querySelector('nav');
         const headerContainer = document.querySelector('header .container');
-        const logo = document.querySelector('.logo');
         
         if (!nav || !headerContainer) {
-            console.error('Navigation or header container not found');
             return;
         }
         
-        let menuButton = document.querySelector('.mobile-menu-toggle');
+        // Check if button already exists
+        let menuButton = headerContainer.querySelector('.mobile-menu-toggle');
         
         // Create menu button if it doesn't exist
         if (!menuButton) {
             menuButton = document.createElement('button');
-            menuButton.classList.add('mobile-menu-toggle');
+            menuButton.className = 'mobile-menu-toggle';
             menuButton.innerHTML = '☰';
             menuButton.setAttribute('aria-label', 'Toggle menu');
             
-            // Insert button after logo, before nav
-            if (logo && logo.nextSibling) {
-                headerContainer.insertBefore(menuButton, logo.nextSibling);
-            } else if (logo) {
-                logo.parentNode.appendChild(menuButton);
-            } else {
-                headerContainer.appendChild(menuButton);
-            }
+            // Add button to header container (it will be positioned with CSS)
+            headerContainer.appendChild(menuButton);
         }
         
         // Toggle menu on button click
-        menuButton.addEventListener('click', (e) => {
+        menuButton.onclick = function(e) {
             e.stopPropagation();
             nav.classList.toggle('active');
-            menuButton.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
-        });
+            this.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+        };
         
         // Close menu when clicking a link
         const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.onclick = function() {
                 if (window.innerWidth <= 768) {
                     nav.classList.remove('active');
                     menuButton.innerHTML = '☰';
                 }
-            });
+            };
         });
         
         // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
+        document.onclick = function(e) {
             if (window.innerWidth <= 768 && 
                 nav.classList.contains('active') && 
                 !nav.contains(e.target) && 
@@ -57,15 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 nav.classList.remove('active');
                 menuButton.innerHTML = '☰';
             }
-        });
+        };
         
         // Handle window resize
-        window.addEventListener('resize', () => {
+        window.onresize = function() {
             if (window.innerWidth > 768) {
                 nav.classList.remove('active');
                 menuButton.innerHTML = '☰';
             }
-        });
+        };
     }
 
     // Initialize mobile menu
@@ -127,5 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+});
 });
 });
