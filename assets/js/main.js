@@ -3,22 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hamburger Menu functionality
     function initMobileMenu() {
         const nav = document.querySelector('nav');
+        const header = document.querySelector('header .container');
         let menuButton = document.querySelector('.mobile-menu-toggle');
         
         // Create menu button if it doesn't exist
-        if (!menuButton) {
+        if (!menuButton && nav) {
             menuButton = document.createElement('button');
             menuButton.classList.add('mobile-menu-toggle');
             menuButton.innerHTML = '☰';
             menuButton.setAttribute('aria-label', 'Toggle menu');
             
-            const logo = document.querySelector('.logo');
-            if (logo && logo.parentElement) {
-                logo.parentElement.insertBefore(menuButton, nav);
+            // Insert button before nav in the header container
+            if (header) {
+                header.appendChild(menuButton);
             }
         }
         
-        if (menuButton) {
+        if (menuButton && nav) {
             // Toggle menu on button click
             menuButton.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -43,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     nav.classList.contains('active') && 
                     !nav.contains(e.target) && 
                     !menuButton.contains(e.target)) {
+                    nav.classList.remove('active');
+                    menuButton.innerHTML = '☰';
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
                     nav.classList.remove('active');
                     menuButton.innerHTML = '☰';
                 }
